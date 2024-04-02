@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
+import Login from './component/menties/login';
+import Signup from './component/menties/signup';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      Hello, World!
+      <Login />
+      <Signup/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
