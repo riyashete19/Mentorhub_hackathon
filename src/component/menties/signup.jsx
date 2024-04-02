@@ -26,7 +26,6 @@ function Signup() {
     setError('');
     setSuccess('');
 
-    // Check if all fields are filled
     for (const field in formData) {
       if (!formData[field]) {
         setError('Please fill in all fields');
@@ -34,13 +33,11 @@ function Signup() {
       }
     }
 
-    // Check if passwords match
     if (formData.password !== formData.reenterPassword) {
       setError('Passwords do not match');
       return;
     }
 
-    // Registration successful
     setSuccess('Registration successful!');
   };
 
