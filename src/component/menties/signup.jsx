@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import '../style.css';
+import GoogleButton from 'react-google-button';
+import { useNavigate } from 'react-router-dom';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleAuthProvider } from '../../firebase';
 
 function Signup() {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -12,6 +17,19 @@ function Signup() {
   });
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+
+  const handleSignUpWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleAuthProvider);
+      console.log(result);
+      localStorage.setItem('token', result.user.accessToken);
+      localStorage.setItem('user', JSON.stringify(result.user));
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -26,6 +44,7 @@ function Signup() {
     setError('');
     setSuccess('');
 
+    // Check if all fields are filled
     for (const field in formData) {
       if (!formData[field]) {
         setError('Please fill in all fields');
@@ -33,11 +52,13 @@ function Signup() {
       }
     }
 
+    // Check if passwords match
     if (formData.password !== formData.reenterPassword) {
       setError('Passwords do not match');
       return;
     }
 
+    // Registration successful
     setSuccess('Registration successful!');
   };
 
@@ -102,6 +123,7 @@ function Signup() {
           />
         </div>
         <button type="submit">Register</button>
+        <GoogleButton onClick={handleSignUpWithGoogle}/>
       </form>
     </div>
   );

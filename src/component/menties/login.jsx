@@ -1,7 +1,14 @@
 import React, { useState } from 'react';
 import '../style.css';
+import GoogleButton from 'react-google-button';
+import { signInWithPopup } from 'firebase/auth';
+import { auth, googleAuthProvider } from '../../firebase';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+
+  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -17,6 +24,17 @@ function Login() {
     });
   };
 
+  const handleSignInWithGoogle = async () => {
+    try {
+      const result = await signInWithPopup(auth, googleAuthProvider);
+      console.log(result);
+      localStorage.setItem('token', result.user.accessToken);
+      localStorage.setItem('user', JSON.stringify(result.user));
+      navigate("/");
+    } catch (error) {
+      console.error(error);
+    }
+  }
   const handleSubmit = (e) => {
     e.preventDefault();
     setError('');
@@ -62,6 +80,7 @@ function Login() {
           />
         </div>
         <button type="submit">Login</button>
+        <GoogleButton onClick={handleSignInWithGoogle}/>
       </form>
     </div>
   );

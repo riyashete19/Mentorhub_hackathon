@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
 import './App.css';
-import Login from './component/menties/login';
-import Signup from './component/menties/signup';
+import {Outlet} from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <Login />
-      <Signup/>
+      <Outlet />
     </>
   );
 }
