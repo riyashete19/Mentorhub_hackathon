@@ -5,13 +5,13 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCHxMBs8zkokKnQvd5bZ0XK7ZrKByHQS9Q",
-  authDomain: "mentorhub-hackathon.firebaseapp.com",
-  projectId: "mentorhub-hackathon",
-  storageBucket: "mentorhub-hackathon.appspot.com",
-  messagingSenderId: "518089208103",
-  appId: "1:518089208103:web:08954b3e4c1bee6d983902",
-  measurementId: "G-KHFQ6WKXW6"
+  apiKey: "AIzaSyAGpVxaOqQgHZUgFEdpQq7ujvE54c456vc",
+  authDomain: "mentorhub-databse.firebaseapp.com",
+  projectId: "mentorhub-databse",
+  storageBucket: "mentorhub-databse.appspot.com",
+  messagingSenderId: "944346962302",
+  appId: "1:944346962302:web:19a68a5912a4abda1c3b2f",
+  measurementId: "G-CNX80G5E68"
 };
 
 const app = initializeApp(firebaseConfig);

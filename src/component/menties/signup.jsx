@@ -62,7 +62,7 @@ function Signup() {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
 
-      await set(ref(db, `users/${userCredential.user.uid}`), {
+      await set(ref(db, `menties/${userCredential.user.uid}`), {
         firstName: formData.firstName,
         lastName: formData.lastName,
         email: formData.email,
