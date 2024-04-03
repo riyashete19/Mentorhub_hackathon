@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
-import { AuthContextProvider } from "./component/context/AuthContext";
-import { ChatContextProvider } from "./component/context/ChatContext";
+import { AuthContextProvider } from "./context/AuthContext";
+import { ChatContextProvider } from "./context/ChatContext";
 import App from './App';
 import Login from './component/menties/login';
 import Signup from './component/menties/signup'; 
