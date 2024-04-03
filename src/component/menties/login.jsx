@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import '../style.css';
 import GoogleButton from 'react-google-button';
-import { signInWithPopup } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, googleAuthProvider } from '../../firebase';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
-
   const navigate = useNavigate();
   
   const [formData, setFormData] = useState({
@@ -35,7 +34,8 @@ function Login() {
       console.error(error);
     }
   }
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setSuccess(''); 
@@ -45,14 +45,14 @@ function Login() {
       return;
     }
 
+    try {
+      await signInWithEmailAndPassword(auth, formData.email, formData.password);
 
-    if (formData.email !== 'user@example.com' || formData.password !== 'password') {
+      setSuccess('Login Successful!');
+    } catch (error) {
+      console.error(error);
       setError('Invalid email or password');
-      return;
     }
-
-
-    setSuccess('Login Successful!');
   };
 
   return (

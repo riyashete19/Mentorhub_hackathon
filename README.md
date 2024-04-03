@@ -24,15 +24,15 @@ Currently, two official plugins are available:
 
 7. run this command
 
-    cd <forked-repository-name>
+    cd forked-repository-name
 
 8. run this command 
 
-    git remote add origin <your-forked-repo-url>
+    git remote add origin your-forked-repo-url
 
 9. run this command
 
-    git remote add upstream <original-repo-url>
+    git remote add upstream original-repo-url
 
 10. run this command
 
@@ -40,7 +40,7 @@ Currently, two official plugins are available:
 
 11. run this command
 
-    git checkout -b <new-branch-name>
+    git checkout -b new-branch-name
 
 12. run this command
 
@@ -56,7 +56,7 @@ Currently, two official plugins are available:
 
 15. run this command
 
-    git push --set-upstream origin <your-new-branch-name>
+    git push --set-upstream origin your-new-branch-name
 
 16. run this command 
 

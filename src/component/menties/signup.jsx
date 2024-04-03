@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import '../style.css';
 import GoogleButton from 'react-google-button';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { set, ref } from 'firebase/database';
+import { auth, googleAuthProvider, db } from '../../firebase'; // Import 'db' from firebase.js
 import { useNavigate } from 'react-router-dom';
-import { signInWithPopup } from 'firebase/auth';
-import { auth, googleAuthProvider } from '../../firebase';
 
 function Signup() {
   const navigate = useNavigate();
@@ -39,7 +40,7 @@ function Signup() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     setSuccess('');
@@ -58,8 +59,21 @@ function Signup() {
       return;
     }
 
-    // Registration successful
-    setSuccess('Registration successful!');
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, formData.email, formData.password);
+
+      await set(ref(db, `users/${userCredential.user.uid}`), {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+        phone: formData.phone
+      });
+
+      setSuccess('Registration successful!');
+    } catch (error) {
+      console.error(error);
+      setError(error.message); 
+    }
   };
 
   return (
