@@ -4,7 +4,7 @@ import GoogleButton from 'react-google-button';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { set, ref } from 'firebase/database';
 import { auth, googleAuthProvider, db } from '../../firebase'; // Import 'db' from firebase.js
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Signup() {
   const navigate = useNavigate();
@@ -138,6 +138,9 @@ function Signup() {
         </div>
         <button type="submit">Register</button>
         <GoogleButton onClick={handleSignUpWithGoogle}/>
+        <div>
+        Have an account? <Link to="/menties/login">Log in</Link>
+      </div>
       </form>
     </div>
   );
