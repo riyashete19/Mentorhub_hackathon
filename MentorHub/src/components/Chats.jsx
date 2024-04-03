@@ -1,11 +1,11 @@
+import { doc, onSnapshot } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import { ChatContext } from "../context/ChatContext";
 import { db } from "../firebase";
-import { collection, query, orderBy, onSnapshot } from "firebase/firestore";
 
 const Chats = () => {
-  const [chats, setChats] = useState([]);
+  const [chats, setChats] = useState({}); // Initialize chats state with an empty object
 
   const { currentUser } = useContext(AuthContext);
   const { dispatch } = useContext(ChatContext);
@@ -13,7 +13,7 @@ const Chats = () => {
   useEffect(() => {
     const getChats = () => {
       const unsub = onSnapshot(doc(db, "userChats", currentUser.uid), (doc) => {
-        setChats(doc.data());
+        setChats(doc.data() || {}); // Ensure doc.data() is an object, or fallback to empty object
       });
 
       return () => {
