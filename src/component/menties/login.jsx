@@ -3,11 +3,11 @@ import '../style.css';
 import GoogleButton from 'react-google-button';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { auth, googleAuthProvider } from '../../firebase';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 function Login() {
   const navigate = useNavigate();
-  
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -49,6 +49,8 @@ function Login() {
       await signInWithEmailAndPassword(auth, formData.email, formData.password);
 
       setSuccess('Login Successful!');
+      // Redirect to home page upon successful login
+      navigate("/mentieshome");
     } catch (error) {
       console.error(error);
       setError('Invalid email or password');
@@ -81,6 +83,9 @@ function Login() {
         </div>
         <button type="submit">Login</button>
         <GoogleButton onClick={handleSignInWithGoogle}/>
+        <div>
+          Don't have an account? <Link to="/menties/signup">Sign up</Link>
+        </div>
       </form>
     </div>
   );

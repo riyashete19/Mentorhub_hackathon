@@ -1,12 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-
-function home() {
+function Home() {
   return (
     <>
-      <Outlet />
+      <h1>Welcome to Home</h1>
+      <Link to="/choice">
+        <button>Get Started</button>
+      </Link>
     </>
   );
 }
 
-export default home;
+export default Home;
