@@ -10,13 +10,15 @@ import {
   Timestamp,
   updateDoc,
 } from "firebase/firestore";
-import { db, storage } from "../firebase";
+import { db } from "./firebase"; 
+import { storage } from "./firebase";
 import { v4 as uuid } from "uuid";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const Input = () => {
   const [text, setText] = useState("");
   const [img, setImg] = useState(null);
+  
 
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);

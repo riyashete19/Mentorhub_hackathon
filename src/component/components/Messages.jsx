@@ -1,7 +1,7 @@
 import { doc, onSnapshot } from "firebase/firestore";
 import React, { useContext, useEffect, useState } from "react";
 import { ChatContext } from "../context/ChatContext";
-import { db } from "../firebase";
+import { db } from "./firebase";
 import Message from "./Message";
 
 const Messages = () => {
@@ -13,6 +13,7 @@ const Messages = () => {
       doc.exists() && setMessages(doc.data().messages);
     });
 
+    
     return () => {
       unSub();
     };
