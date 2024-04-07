@@ -21,7 +21,7 @@ const Login = () => {
 
 
       setTimeout(() => {
-        navigate("/menties/profile");
+        navigate("/mentors/profile");
       }, 3000);
       
     } catch (err) {
@@ -35,7 +35,7 @@ const Login = () => {
         <img src={Limage} alt="Error!" />
       </div>
       <div className="formWrapper">
-        <span className="logo">Menties Side</span>
+        <span className="logo">Mentor Side</span>
         <span className="title">Login</span>
         <form onSubmit={handleSubmit}>
           <input type="email" placeholder="email" />
@@ -44,7 +44,7 @@ const Login = () => {
           {err && <div className="error">{err}</div>}
           {success && <div className="success">{success}</div>}
         </form>
-        <p>You don't have an account? <Link to="/menties/register">Register</Link></p>
+        <p>You don't have an account? <Link to="/mentors/register">Register</Link></p>
       </div>
     </div>
   );
