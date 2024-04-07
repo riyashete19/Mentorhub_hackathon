@@ -10,7 +10,7 @@ const Chat = () => {
   const { data } = useContext(ChatContext);
 
   return (
-    <div className="chat">
+    <div className="chat"style={{ marginTop: '0px' }}>
       <div className="chatInfo">
         <span>{data.user?.displayName}</span>
         <div className="chatIcons">

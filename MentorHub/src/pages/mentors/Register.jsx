@@ -9,13 +9,17 @@ import { doc, setDoc } from "firebase/firestore";
 import { useNavigate, Link } from "react-router-dom";
 import { ref as databaseRef, set as setDatabase } from 'firebase/database';
 
-
-
 const Register = () => {
   const [error, setErr] = useState(false);
   const [success, setSuccess] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [selectedValue, setSelectedValue] = useState('');
+
+
+  const handleSelectChange = (e) => {
+    setSelectedValue(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     setLoading(true);
@@ -25,8 +29,9 @@ const Register = () => {
     const phoneNumber = e.target[2].value;
     const password = e.target[3].value;
     const confirmPassword = e.target[4].value;
-    const file = e.target[5].files[0];
-  
+    const mentorType = selectedValue; 
+    const file = e.target[6].files[0];
+
     if (!displayName || !email || !phoneNumber || !password || !confirmPassword || !file) {
       setErr(true);
       setLoading(false);
@@ -35,6 +40,7 @@ const Register = () => {
       return;
     }
   
+
     if (password !== confirmPassword) {
       setErr(true);
       setLoading(false);
@@ -61,28 +67,40 @@ const Register = () => {
               displayName,
               email,
               phoneNumber,
+              mentorType, 
               photoURL: downloadURL,
             });
   
-            await setDatabase(databaseRef(realtime, 'menties/' + res.user.uid), {
-              uid: res.user.uid,
-              displayName,
-              email,
-              phoneNumber,
-              photoURL: downloadURL,
-            });
-  
-
+            
+            if (mentorType === 'personal') {
+              await setDatabase(databaseRef(realtime, 'personal mentor/' + res.user.uid), {
+                uid: res.user.uid,
+                displayName,
+                email,
+                phoneNumber,
+                mentorType,
+                photoURL: downloadURL,
+              });
+            } else if (mentorType === 'professional') {
+              await setDatabase(databaseRef(realtime, 'professional mentor/' + res.user.uid), {
+                uid: res.user.uid,
+                displayName,
+                email,
+                phoneNumber,
+                mentorType,
+                photoURL: downloadURL,
+              });
+            }
+            
+            
             await setDoc(doc(db, "userChats", res.user.uid), {});
-
 
             setErr(false);
             setLoading(false);
             setSuccess('Registration successful!');
             
-
             setTimeout(() => {
-              navigate("/menties/profile");
+              navigate("/mentors/profile");
             }, 3000);
 
           } catch (err) {
@@ -112,9 +130,14 @@ const Register = () => {
             <input required type="tel" placeholder="Phone Number" />
             <input required type="password" placeholder="Password" />
             <input required type="password" placeholder="Confirm Password" />
+            <select value={selectedValue} onChange={handleSelectChange}>
+              <option value="">Select Option</option>
+              <option value="personal">Personal Mentor</option>
+              <option value="professional">Professional Mentor</option>
+            </select>
             <input required style={{ display: "none" }} type="file" id="file" />
             <label htmlFor="file">
-              <img src={Add} alt=""/>
+              <img src={Add} alt="" />
               <span>Add an avatar</span>
             </label>
             <button disabled={loading}>Sign up</button>
@@ -123,7 +146,7 @@ const Register = () => {
             {success && <div className="success">{success}</div>}
         </form>
         <p>
-          Already have an account? <Link to="/menties/login">Login</Link>
+          Already have an account? <Link to="/mentors/login">Login</Link>
         </p>
       </div>
     </div>

@@ -82,11 +82,17 @@ const Search = () => {
         <input
           type="text"
           placeholder="Find a user"
-          onKeyDown={handleKey}
           onChange={(e) => setUsername(e.target.value)}
+          style={{ width: "90%" }}
           value={username}
         />
+         <i
+          className="bi bi-search search-icon"
+          style={{ alignSelf: "flex-end" }}
+          onClick={() => handleSearch()} 
+        ></i>
       </div>
+
       {err && <span>User not found!</span>}
       {user && (
         <div className="userChat" onClick={handleSelect}>

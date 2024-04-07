@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
+import { updateProfile } from 'firebase/auth'; 
 import NavBar from './Navbar';
 import './style.scss'; 
 
@@ -15,7 +16,7 @@ function Profile() {
     email: '',
     phoneNumber: '',
     bio: '',
-    photoURL: ''
+    photoURL: '' 
   });
 
   useEffect(() => {
@@ -27,12 +28,13 @@ function Profile() {
           if (docSnap.exists()) {
             const userData = docSnap.data();
             setPhoneNumber(userData.phoneNumber);
+           
             setFormData({
               displayName: userData.displayName || '',
               email: userData.email || '',
               phoneNumber: userData.phoneNumber || '',
               bio: userData.bio || '',
-              photoURL: userData.photoURL || ''
+              photoURL: userData.photoURL || '' 
             });
           } else {
             console.log('No such document!');
@@ -62,11 +64,11 @@ function Profile() {
     const confirmed = window.confirm("Are you sure you want to update your profile?");
     if (confirmed) {
       try {
-
+        
         const docRef = doc(db, 'users', currentUser.uid);
         await updateDoc(docRef, formData);
         
-
+        
         const updatedDocSnap = await getDoc(docRef);
         if (updatedDocSnap.exists()) {
           const updatedUserData = updatedDocSnap.data();
@@ -100,16 +102,17 @@ function Profile() {
       <div className={`profile-container ${editProfileVisible ? 'hidden' : ''}`}>
         <img src={formData.photoURL} alt="Profile" className="profile-image" />
         <div className="profile-details">
-          <h2> {formData.displayName}</h2>
-          <p><b>Email:</b> {formData.email}</p>
-          <p className="phone-number"><b>Contact:</b> {phoneNumber}</p>
-          <p className="bio"><b>Bio:</b> {formData.bio}</p>
+          <h2>{formData.displayName}</h2>
+          <p>{formData.email}</p>
+          <p className="phone-number">{phoneNumber}</p>
+          <p className="bio">{formData.bio}</p>
         </div>
         <div className="profile-actions">
           <button onClick={handleEditProfile}>Edit Profile</button>
           <Link onClick={()=>signOut(auth)} to="/">Logout</Link>
         </div>
       </div>
+
       <div className={`edit-profile-container ${editProfileVisible ? '' : 'hidden'}`}>
         <input 
           required 
