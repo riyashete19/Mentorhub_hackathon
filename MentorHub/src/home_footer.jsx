@@ -23,9 +23,9 @@ MentorHub is dedicated to fostering growth and development through personalized 
                     <h2>Follow Us</h2>
                     <p>Stay connected with us on social media:</p>
                     <div className="social-links">
-                        <a href="https://www.facebook.com/your-company" target="_blank"><i className="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/your-company" target="_blank"><i className="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/your-company" target="_blank"><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/your-company" target="_blank"><i class="bi bi-facebook"></i></a>
+                        <a href="https://twitter.com/your-company" target="_blank"><i class="bi bi-twitter-x"></i></a>
+                        <a href="https://www.instagram.com/your-company" target="_blank"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
             </div>
