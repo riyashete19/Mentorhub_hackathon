@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { getDatabase, ref, onValue } from 'firebase/database';
 import NavBar from "./Navbar";
 import Modal from 'react-modal';
-import { Link } from 'react-router-dom'; // Import Link from react-router-dom
+import { Link } from 'react-router-dom'; 
 
 Modal.setAppElement('#root');
 
@@ -11,7 +11,7 @@ function PersonalMentors() {
   const [mentors, setMentors] = useState([]);
   const [selectedMentor, setSelectedMentor] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [followButtonLabel, setFollowButtonLabel] = useState("Follow"); // Renamed followobut to followButtonLabel
+  const [followButton, setFollowButtonLabel] = useState("Follow"); 
 
   useEffect(() => {
     const db = getDatabase();
@@ -48,7 +48,7 @@ function PersonalMentors() {
   };
 
   const handleSelect = async () => {
-    //check whether the group(chats in firestore) exists, if not create
+
     const combinedId =
       currentUser.uid > user.uid
         ? currentUser.uid + user.uid
@@ -57,10 +57,10 @@ function PersonalMentors() {
       const res = await getDoc(doc(db, "chats", combinedId));
 
       if (!res.exists()) {
-        //create a chat in chats collection
+
         await setDoc(doc(db, "chats", combinedId), { messages: [] });
 
-        //create user chats
+
         await updateDoc(doc(db, "userChats", currentUser.uid), {
           [combinedId + ".userInfo"]: {
             uid: user.uid,
@@ -104,9 +104,9 @@ function PersonalMentors() {
           contentLabel="Selected Mentor Details"
           style={{
             content: {
-              height: '300px', // Adjust height as needed
-              width: '300px', // Adjust width as needed
-              margin: 'auto', // Center the modal horizontally
+              height: '300px', 
+              width: '300px', 
+              margin: 'auto',
               background: '#f9f9f9',
             }
           }} 
@@ -119,8 +119,8 @@ function PersonalMentors() {
               <p><strong>Email:</strong> {selectedMentor.email}</p>
               <p><strong>Phone Number:</strong> {selectedMentor.phoneNumber}</p>
               <div className="special">
-                <button onClick={handleFollowToggle}>{followButtonLabel}</button>
-                <Link to="/menties/chatbox"><button>Message</button></Link> {/* Fixed Link */}
+                <button onClick={handleFollowToggle}>{followButton}</button>
+                <Link to="/menties/chatbox"><button>Message</button></Link>
               </div>
             </div>
           )}
