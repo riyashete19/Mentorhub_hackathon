@@ -10,7 +10,7 @@ function ProfessionalMentors() {
   const [mentors, setMentors] = useState([]);
   const [selectedMentor, setSelectedMentor] = useState(null);
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [followobut, setFollow] = useState("Follow");
+  const [followButton, setFollow] = useState("Follow");
   
 
   useEffect(() => {
@@ -81,7 +81,7 @@ function ProfessionalMentors() {
               <p><strong>Email:</strong> {selectedMentor.email}</p>
               <p><strong>Phone Number:</strong> {selectedMentor.phoneNumber}</p>
               <div className="special">
-                <button onClick={handleFollowToggle}>{followButtonLabel}</button>
+                <button onClick={handleFollowToggle}>{followButton}</button>
                 <Link to="/menties/chatbox"><button>Message</button></Link> {/* Fixed Link */}
               </div>
             </div>

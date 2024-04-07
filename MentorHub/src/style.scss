@@ -14,7 +14,7 @@
   }
 }
 
-
+/* New color palette */
 $primary-color: #C0EEF2;
 $secondary-color: #537FE7;
 $accent-color: #5356FF;
@@ -342,7 +342,7 @@ $light-color: #E9F8F9;
     }
   }
 }
-
+/* Profile Component Styles */
 .profile-container {
   display: flex;
   flex-direction: column;
@@ -425,7 +425,7 @@ $light-color: #E9F8F9;
   }
 }
 
-
+/* New color palette */
 $primary-color: #C0EEF2;
 $secondary-color: #537FE7;
 $accent-color: #5356FF;
@@ -481,7 +481,7 @@ $light-color: #E9F8F9;
         border: none;
         width: 285px;
         border-bottom: 1px solid $primary-color;
-        appearance: none; 
+        appearance: none; /* Remove default arrow */
         &::placeholder {
           color: rgb(175, 175, 175);
         }
@@ -753,7 +753,7 @@ $light-color: #E9F8F9;
     }
   }
 }
-
+/* Profile Component Styles */
 .profile-container {
   display: flex;
   flex-direction: column;
@@ -806,6 +806,7 @@ $light-color: #E9F8F9;
   background-color: #0056b3;
 }
 
+//choice css
 
 
 .choice-container {
@@ -813,11 +814,11 @@ $light-color: #E9F8F9;
   flex-direction: column;
   align-items: center;
   padding: 50px;
-  background-color: #E9F8F9; 
+  background-color: #E9F8F9; // Light blue
 }
 
 .choice-container h1 {
-  color: #5356FF; 
+  color: #5356FF; // Dark blue
   margin-bottom: 30px;
   font-size: 24px;
 }
@@ -832,7 +833,7 @@ $light-color: #E9F8F9;
 
 .choice-container .image-wrapper {
   flex: 1;
-  padding-right: 20px;
+  padding-right: 20px; /* Adjust spacing between image and options */
 }
 
 .choice-container .image-wrapper img {
@@ -844,7 +845,7 @@ $light-color: #E9F8F9;
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding-left: 20px; 
+  padding-left: 20px; /* Add padding to create space between image and options */
 }
 
 .choice-container .options-wrapper button {
@@ -854,18 +855,31 @@ $light-color: #E9F8F9;
   outline: none;
   border: none;
   cursor: pointer;
-  background-color: #537FE7; 
-  color: #E9F8F9; 
+  background-color: #537FE7; // Light blue
+  color: #E9F8F9; // Light blue
   border-radius: 5px;
   transition: background-color 0.3s ease;
   margin-bottom: 10px;
 }
 
 .choice-container .options-wrapper button:hover {
-  background-color: #4765A1; 
+  background-color: #4765A1; // Darker shade of light blue
 }
 
 .home-navbar {
   font-size: 20px; 
   padding: 20px;
+  .logo {
+      // Styles for the logo
+  }
+
+  ul {
+      // Styles for the list
+      li {
+          // Styles for list items
+          a {
+              // Styles for links
+          }
+      }
+  }
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getDatabase, ref, onValue } from 'firebase/database';
+import { Link } from "react-router-dom";
 import Modal from 'react-modal';
 import NavBar from "./Navbar";
 
@@ -89,7 +90,7 @@ function Menties() {
       <p><strong>Email:</strong> {selectedMenty.email}</p>
       <p><strong>Phone Number:</strong> {selectedMenty.phoneNumber}</p>
       <div className="special">
-        <button onClick={handleFollowToggle}>{followButtonLabel}</button>
+        <button onClick={handleFollowToggle}>{followButton}</button>
         <Link to="/mentors/chatbox"><button>Message</button></Link> {/* Fixed Link */}
       </div>
     </div>

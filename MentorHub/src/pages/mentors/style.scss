@@ -5,12 +5,14 @@
     align-items: center;
   
     img {
-      width: 80%;
-      margin-right: 10px; 
-      border-radius: 10px; 
+      width: 80%; // Adjust the width as needed
+      margin-right: 10px; // Add margin to create space between the image and the form
+      border-radius: 10px; // Optional: Add border-radius to the image
     }
   }
+  // style.scss
 
+// Define the color palette
 $primary-color: #537FE7;
 $secondary-color: #C0EEF2;
 $accent-color: #5356FF;
@@ -21,8 +23,8 @@ $light-color: #ffffff;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: $primary-color;
-  color: $light-color;
+  background-color: $primary-color; // Use primary color for background
+  color: $light-color; // Use light color for text
 
   &-logo {
     font-size: 1.5rem;
@@ -41,7 +43,7 @@ $light-color: #ffffff;
       margin-right: 10px;
       border: none;
       outline: none;
-      width: 30%;
+      width: 30%; // Adjust the width of the search bar
     }
   }
 
@@ -51,7 +53,7 @@ $light-color: #ffffff;
       color: $light-color;
       font-size: 1.5rem;
       margin-left: 10px;
-      text-decoration: none; 
+      text-decoration: none; // Remove text decoration from icons
     }
   }
 
@@ -72,11 +74,11 @@ $light-color: #ffffff;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: whitesmoke; 
-  color: black;
+  background-color: whitesmoke; /* Example background color */
+  color: black; /* Example text color */
   padding: 10px 20px;
   border-radius: 5px;
-  z-index: 999; 
+  z-index: 999; /* Ensure it's above other content */
 }
 
 .user-chat-info {
@@ -89,12 +91,12 @@ $light-color: #ffffff;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-  background-color:whitesmoke; 
-  color: black; 
+  background-color:whitesmoke; /* Example background color */
+  color: black; /* Example text color */
   font-size: 20px;
   padding: 10px 20px;
   border-radius: 5px;
-  z-index: 999; 
+  z-index: 999; /* Ensure it's above other content */
 }
  .user-chat-info img {
   border-radius: 50%;
@@ -113,12 +115,12 @@ $light-color: #ffffff;
   top: 80px;
   left: 50%;
   transform: translateX(-50%);
-  background-color:whitesmoke;
-  color: black;
+  background-color:whitesmoke; /* Example background color */
+  color: black; /* Example text color */
   font-size: 20px;
   padding: 10px 20px;
   border-radius: 5px;
-  z-index: 999; 
+  z-index: 999; /* Ensure it's above other content */
  }
 
 .clear-icon {
@@ -134,13 +136,13 @@ $light-color: #ffffff;
 .sidebar {
   position: fixed;
   top: 50;
-  right: 0; 
+  right: 0; // Place the sidebar on the right side
   height: 100%;
   width: 250px;
-  background-color: #fff;
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 1000; 
-  overflow-y: auto; 
+  background-color: #fff; // Change the background color as needed
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2); // Add shadow for a better look
+  z-index: 1000; // Ensure sidebar appears above other elements
+  overflow-y: auto; // Enable vertical scrolling if content exceeds height
 
   ul {
     list-style: none;
@@ -152,12 +154,12 @@ $light-color: #ffffff;
       cursor: pointer;
 
       &:hover {
-        background-color: #f0f0f0; 
+        background-color: #f0f0f0; // Change background color on hover
       }
 
       a {
         text-decoration: none;
-        color: #333; 
+        color: #333; // Change text color as needed
       }
     }
   }
@@ -174,7 +176,7 @@ $light-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   max-width: 80%;
-  background: linear-gradient(to bottom, rgb(58, 116, 250), rgb(166, 235, 239));
+  background: linear-gradient(to bottom, rgb(58, 116, 250), rgb(166, 235, 239)); /* Gradient direction */
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
@@ -284,8 +286,11 @@ $light-color: #ffffff;
 .hidden {
   display: none;
 }
+
+// PersonalMentors.scss
+
 .personal-mentors {
-  margin-top: 20px; 
+  margin-top: 20px; /* Example margin */
 }
 
 .mentor-list {
@@ -294,18 +299,18 @@ $light-color: #ffffff;
 }
 
 .mentor-item {
-  margin-right: 20px;
-  margin-bottom: 20px; 
+  margin-right: 20px; /* Example margin */
+  margin-bottom: 20px; /* Example margin */
   cursor: pointer;
 }
 
 .mentor-item img {
   height: 30px;
   width: 30px;
-  margin-right: 10px; 
+  margin-right: 10px; /* Example margin */
 }
 
-
+/* Additional styles for mentor name */
 .mentor-item p {
   margin: 0;
 }
@@ -320,14 +325,14 @@ $light-color: #ffffff;
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin: 10px; 
+  border: 1px solid #ccc; /* Border style */
+  padding: 10px; /* Padding for spacing */
+  margin: 10px; /* Margin for spacing */
 }
 .homeleft {
   text-align: center;
   height: 800px;
-  width: 50%; 
+  width: 50%; // Adjust the width as needed
   float: left;
   border: 1px solid #ccc;
 }
@@ -336,63 +341,63 @@ $light-color: #ffffff;
   text-align: center;
   height: 800px;
   border: 1px solid #ccc;
-  width:49.560%; 
+  width:49.560%; // Adjust the width as needed
   float: right;
 }
 .menty-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px; 
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust grid columns as needed */
+  gap: 20px; /* Adjust gap between grid items as needed */
 }
 
 .infodiv {
   display: flex;
   align-items: center;
-  padding: 20px; 
-  border-radius: 12px; 
-  background-color: #f0f0f0; 
+  padding: 20px; /* Increase padding for larger size */
+  border-radius: 12px; /* Increase border radius for rounded corners */
+  background-color: #f0f0f0; /* Set background color */
   cursor: pointer;
-  transition: background-color 0.3s ease; 
+  transition: background-color 0.3s ease; /* Add smooth transition effect */
 }
 
 .infodiv:hover {
-  background-color: #e0e0e0; 
+  background-color: #e0e0e0; /* Change background color on hover */
 }
 
 .infodiv img {
-  height: 50px; 
-  width: 50px;
+  height: 50px; /* Increase image height */
+  width: 50px; /* Increase image width */
   border-radius: 50%;
-  margin-right: 20px; 
+  margin-right: 20px; /* Adjust spacing between image and text */
 }
 
 .infodiv p {
   margin: 0;
-  font-size: 18px;
-  color: #333; 
+  font-size: 18px; /* Increase font size */
+  color: #333; /* Set text color */
 }
 
 .infodiv i {
-  margin-left: auto; 
-  font-size: 24px; 
-  color: #007bff;
+  margin-left: auto; /* Push the icon to the right */
+  font-size: 24px; /* Increase icon size */
+  color: #007bff; /* Set icon color */
 }
 .special button {
-
+  /* Add your desired background color */
   background-color: rgb(55, 178, 240);
-
+  /* Add your desired text color */
   color: white;
-
+  /* Add any additional styling such as padding, border, etc. */
   padding: 10px 20px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
+  /* Add margin to create space between buttons */
   margin-right: 10px;
   margin-left: 50px;
 }
 
-
+/* Define styles for the buttons when hovered over */
 .special button:hover {
-  background-color: #45a049; 
+  background-color: #45a049; /* Darker Green */
 }
