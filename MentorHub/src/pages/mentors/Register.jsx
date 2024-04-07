@@ -122,7 +122,7 @@ const Register = () => {
         <img src={Rimage} alt="Error!" />
       </div>
       <div className="formWrapper">
-        <span className="logo">Menties Side</span>
+        <span className="logo">Mentors Side</span>
         <span className="title">Register</span>
         <form onSubmit={handleSubmit}>
             <input required type="text" placeholder="Full Name" />
